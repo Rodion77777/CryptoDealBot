@@ -1,12 +1,15 @@
 package CryptoDealBot.demo.domain.entity;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import lombok.NonNull;
 
 import java.util.Date;
 
 @AllArgsConstructor
+@NoArgsConstructor
 @Data
 @NonNull
 public class CryptoPairEntity {
@@ -15,8 +18,12 @@ public class CryptoPairEntity {
     private double indexPrice;
     private double estimatedSettlePrice;
     private double lastFundingRate;
-    private Date nextFundingTime;
     private double interestRate;
+
+    @JsonFormat(shape = JsonFormat.Shape.NUMBER)
+    private Date nextFundingTime;
+
+    @JsonFormat(shape = JsonFormat.Shape.NUMBER)
     private Date time;
 }
 
