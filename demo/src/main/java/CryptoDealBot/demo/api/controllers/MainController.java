@@ -64,7 +64,7 @@ public class MainController {
     }
 
     @Retryable(value = {TemporaryDataUnavailableException.class}, maxAttempts = 3, backoff = @Backoff(delay = 2000))
-    private static String sendNextRequest (String URL) {
+    private static String sendNextRequest(String URL) {
         try {
             String response = new RestTemplate().getForEntity(URL, String.class).getBody();
             if (response == null || response.isEmpty())
